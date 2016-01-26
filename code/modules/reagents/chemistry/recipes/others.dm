@@ -13,6 +13,13 @@
 	required_reagents = list("water" = 1, "silicon" = 1, "oxygen" = 1)
 	result_amount = 4
 
+/datum/chemical_reaction/bleach
+	name = "Bleach"
+	id = "bleach"
+	result = "bleach"
+	required_reagents = list("water" = 1, "chlorine" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/spraytan
 	name = "Spray Tan"
 	id = "spraytan"

@@ -410,3 +410,58 @@
 				H << "<span class='danger'>Your stomach hurts too much as pressure builds up inside of you.</span>"
 				H.adjustToxLoss(6*REM)
 	..()
+
+
+
+
+/datum/reagent/drug/crack
+	name = "Crack"
+	id = "crack"
+	description = "Also known as crack-cocaine. Niggers love it, sometimes, even more than KFC or watermelons."
+	color = "#60A584" // rgb: 96, 165, 132
+	overdose_threshold = 30
+
+/datum/reagent/drug/crack/on_mob_life(mob/living/M)
+	M.druggy = max(M.druggy, 15)
+	if(isturf(M.loc) && !istype(M.loc, /turf/space))
+		if(M.canmove)
+			if(prob(10)) step(M, pick(cardinal))
+	if(prob(7))
+		M.emote(pick("twitch","drool","moan","giggle"))
+	..()
+	return
+
+/datum/reagent/drug/crack/overdose_start(mob/living/M)
+	M << "<span class='userdanger'>You want to shoot white people and rap</span>"
+
+
+/datum/reagent/drug/crack/overdose_process(mob/living/M)
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/N = M
+		if(N.dna.species.id == "human")
+			N.skin_tone = "african2"
+			N.regenerate_icons()
+			if(N.hair_style != "Afro" && N.hair_style != "Afro 2")
+				N.hair_style = pick("Afro","Afro 2")
+				N.hair_color = "000"
+		N.update_body()
+
+	M.AdjustParalysis(-2)
+	M.AdjustStunned(-2)
+	M.AdjustWeakened(-2)
+	M.adjustStaminaLoss(-2)
+	M.status_flags |= GOTTAGOREALLYFAST
+	M.Jitter(2)
+	M.adjustBrainLoss(0.25)
+	if (prob(5))
+		M.say("[";"][pick("YO BITCH NIGGA", "SHOOT WHITE PEOPLE", "FUCK DA PALICE", "I WILL RAPE YOUR UNDERAGED DAUGHTER NIGGA", "KFC AND WATERMELONS", "WHAT'S UP I DONT GIVE A FUCK", "I SELL DOPE BOY", "OOGA BOOGA")]")
+	if(prob(5))
+		M.emote(pick("twitch", "shiver"))
+	if (prob(5)) M.visible_message("<span class='notice'>[M] smacks lips</span>", \
+													 "<span class='notice'>You smack your lips</span>")
+	..()
+	if(M.hallucination < 30 && prob(20))
+		M.hallucination += 5
+	..()
+	return
+

@@ -14,7 +14,6 @@
 	mix_message = "The mixture violently reacts, leaving behind a few crystalline shards."
 	required_temp = 390
 
-
 /datum/chemical_reaction/krokodil
 	name = "Krokodil"
 	id = "krokodil"
@@ -46,3 +45,12 @@
 	result = "aranesp"
 	required_reagents = list("epinephrine" = 1, "atropine" = 1, "morphine" = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/crack
+	name = "Crack"
+	id = "crack"
+	result = "crack"
+	required_reagents = list("welding_fuel" = 1, "ammonia" = 1, "carbon" = 1)
+	result_amount = 20
+	mix_message = "You made da crack are you a nigga or sumfin ?"
+	required_temp = 390

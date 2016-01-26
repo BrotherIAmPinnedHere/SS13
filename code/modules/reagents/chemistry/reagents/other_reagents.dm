@@ -479,7 +479,18 @@
 	reagent_state = SOLID
 	color = "#BF8C00" // rgb: 191, 140, 0
 
+/datum/reagent/carbon
+	name = "Carbon"
+	id = "carbon"
+	description = "A chemical element."
+	reagent_state = SOLID
+	color = "#1C1300" // rgb: 30, 20, 0
 
+/datum/reagent/carbon/reaction_turf(turf/T, reac_volume)
+	if(!istype(T, /turf/space))
+		var/obj/effect/decal/cleanable/dirt/D = locate() in T.contents
+		if(!D)
+			new /obj/effect/decal/cleanable/dirt(T)
 
 /datum/reagent/chlorine
 	name = "Chlorine"
@@ -652,6 +663,73 @@
 		e.start()
 	else // let's just make fire
 		PoolOrNew(/obj/effect/hotspot, location)
+
+//bleach
+
+/datum/reagent/bleach
+	name = "Bleach"
+	id = "bleach"
+	description = "Popular method of suicide among bullied people. Cleans clothes and maybe even skin."
+	color = "#A5F0EE"
+
+/datum/reagent/bleach/reaction_obj(obj/O, reac_volume)
+	if(istype(O,/obj/effect/decal/cleanable))
+		qdel(O)
+	else
+		if(O)
+			O.clean_blood()
+
+/datum/reagent/bleach/reaction_turf(turf/T, reac_volume)
+	if(reac_volume >= 1)
+		T.clean_blood()
+		for(var/obj/effect/decal/cleanable/C in T)
+			qdel(C)
+
+		for(var/mob/living/simple_animal/slime/M in T)
+			M.adjustToxLoss(rand(5,10))
+
+/datum/reagent/bleach/reaction_mob(mob/M, method=TOUCH, reac_volume)
+	if(method == TOUCH || VAPOR)
+		var/mob/living/carbon/human/N = M
+		if(iscarbon(M))
+			var/mob/living/carbon/C = M
+			if(istype(M,/mob/living/carbon/human))
+				var/mob/living/carbon/human/H = M
+				H.skin_tone = "albino"
+				if(H.lip_style)
+					H.lip_style = null
+					H.update_body()
+			if(C.r_hand)
+				C.r_hand.clean_blood()
+			if(C.l_hand)
+				C.l_hand.clean_blood()
+			if(C.wear_mask)
+				if(C.wear_mask.clean_blood())
+					C.update_inv_wear_mask()
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = C
+				if(H.head)
+					if(H.head.clean_blood())
+						H.update_inv_head()
+				if(H.wear_suit)
+					if(H.wear_suit.clean_blood())
+						H.update_inv_wear_suit()
+				else if(H.w_uniform)
+					if(H.w_uniform.clean_blood())
+						H.update_inv_w_uniform()
+				if(H.shoes)
+					if(H.shoes.clean_blood())
+						H.update_inv_shoes()
+			M.clean_blood()
+		N.regenerate_icons()
+		//N.update_body()
+
+datum/reagent/bleach/on_mob_life(mob/living/M, method = INGEST, reac_volume)
+	if(istype(M,/mob/living/carbon/human))
+		if(method == INGEST)
+			M.adjustToxLoss(100)
+//bleach end
+
 
 /datum/reagent/space_cleaner
 	name = "Space cleaner"
@@ -1075,16 +1153,3 @@
 		var/t_loc = get_turf(O)
 		qdel(O)
 		new /obj/item/clothing/shoes/galoshes/dry(t_loc)
-
-/datum/reagent/carbon
-	name = "Carbon"
-	id = "carbon"
-	description = "A chemical element."
-	reagent_state = SOLID
-	color = "#1C1300" // rgb: 30, 20, 0
-
-/datum/reagent/carbon/reaction_turf(turf/T, reac_volume)
-	if(!istype(T, /turf/space))
-		var/obj/effect/decal/cleanable/dirt/D = locate() in T.contents
-		if(!D)
-			new /obj/effect/decal/cleanable/dirt(T)
