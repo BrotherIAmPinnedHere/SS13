@@ -146,8 +146,7 @@
 				  "rears up and lets loose a fart of tremendous magnitude!",
 				  "farts!",
 				  "just fucking farted, what a mongoloid!",
-				  "does a post-modern expression of Limed00d's posting skills!",
-				  "does a statement on social justice",
+				  "does a post-modern statement on social justice",
 				  "toots.",
 				  "harvests methane from uranus at mach 3!",
 				  "assists global warming!",
@@ -277,6 +276,7 @@
 						B.stored -= O.itemstorevalue
 					B.Remove(src)
 					B.loc = get_turf(src)
+					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted") + " " + pick("butt", "ass", "hindpart")
 					new /obj/effect/decal/cleanable/blood(src.loc)
 					src.nutrition -= rand(15, 30)
 					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
