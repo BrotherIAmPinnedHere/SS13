@@ -146,6 +146,8 @@
 				  "rears up and lets loose a fart of tremendous magnitude!",
 				  "farts!",
 				  "just fucking farted, what a mongoloid!",
+				  "does a post-modern expression of Limed00d's posting skills!",
+-				  "does a statement on social justice",
 				  "does a post-modern statement on social justice",
 				  "toots.",
 				  "harvests methane from uranus at mach 3!",
