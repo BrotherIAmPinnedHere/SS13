@@ -31,6 +31,7 @@ var/global/list/frills_list = list()
 var/global/list/spines_list = list()
 var/global/list/animated_spines_list = list()
 var/global/list/wing_list = list()
+var/global/list/nose_list = list()
 	//Backpacks
 var/global/list/backbaglist = list("Backpack", "Satchel", "Dufflebag", "Mountain backpack", "Nothing")
 	//Female Uniforms

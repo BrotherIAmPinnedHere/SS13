@@ -27,6 +27,8 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/spines_animated, animated_spines_list)
 	//MOTHERFUCKIN MOTHS
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/wing, wing_list)
+	//OY VEY OY VAY OY GEVALT *SNORT*
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/nose, nose_list)
 
 	//Species
 	for(var/spath in typesof(/datum/species))

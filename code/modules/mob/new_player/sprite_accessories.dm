@@ -1432,3 +1432,25 @@
 /datum/sprite_accessory/wing/atlas
 	name = "Atlas"
 	icon_state = "atlas"
+
+
+/datum/sprite_accessory/nose
+	icon = 'icons/mob/mutant_bodyparts.dmi'
+
+/datum/sprite_accessory/nose/none
+	name = "None"
+	icon_state = "none"
+
+/datum/sprite_accessory/nose/big
+	name = "Big"
+	icon_state = "jew_m_nose_big"
+
+
+//datum/sprite_accessory/nose/big
+//	name = "Giant"
+	icon_state = "giant"
+//
+
+//datum/sprite_accessory/nose/big
+//	name = "Round"
+//	icon_state = "round"

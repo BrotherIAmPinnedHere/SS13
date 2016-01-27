@@ -10,6 +10,9 @@
 	else
 		return "[pick(moth_names_female)]"
 
+/proc/jew_name()
+		return "[pick(jew_names)]"
+
 var/church_name = null
 /proc/church_name()
 	if (church_name)

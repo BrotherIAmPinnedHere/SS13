@@ -8,4 +8,6 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 
+nevergowest = Game Master
 perkelethegoat = Game Master
+DarkerZ = Game Master

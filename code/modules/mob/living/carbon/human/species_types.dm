@@ -125,6 +125,38 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		return 0
 	return 1
 
+
+
+//kikes
+/datum/species/jew
+	name = "Jew"
+	id = "jew"
+	say_mod = "snorts"
+	default_color = "00FF00"
+	roundstart = 1
+	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
+	mutant_bodyparts = list("nose")
+	default_features = list("nose" = "Big")
+	attack_verb = "slash"
+	meat = /obj/item/stack/spacecash/c1000
+	teeth_type = /obj/item/stack/teeth/human
+
+/datum/species/jew/random_name(unique,lastname)
+	if(unique)
+		return random_unique_jew_name()
+
+	var/randname = jew_name()
+
+	return randname
+
+/datum/species/jew/qualifies_for_rank(rank, list/features)
+	if(rank in command_positions)
+		return 0
+	if(rank == "Quartermaster") //goyim know
+		return 0
+	return 1
+
+
 /datum/species/bird
 	// flappy bird
 	name = "Avian"
