@@ -8,6 +8,11 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 
+<<<<<<< HEAD
 nevergowest = Game Master
 perkelethegoat = Game Master
 DarkerZ = Game Master
+=======
+perkelethegoat = Game Master
+nevergowest = Game Master
+>>>>>>> origin/master
