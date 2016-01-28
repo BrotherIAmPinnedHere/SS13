@@ -145,7 +145,7 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	attack_verb = "slash"
 	meat = /obj/item/stack/spacecash/c1000
 	teeth_type = /obj/item/stack/teeth/human
-
+	no_equip = list(slot_wear_mask) //oy vey big nose mask dont fit cant breathe
 
 /datum/species/jew/random_name(unique,lastname)
 	if(unique)
@@ -185,6 +185,10 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		message = replacetext(message,"andy", " goyim")
 		message = replacetext(message,"woody", " hitler")
 		message = replacetext(message,"wood", " ash")
+		message = replacetext(message,"horrible", " nazi")
+		message = replacetext(message,"bad", " nazi")
+		message = replacetext(message,"terrible", " nazi")
+		message = replacetext(message,"disgusting", " nazi")
 
 	return message
 
@@ -196,22 +200,18 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	return 1
 
 //ok now you can eat shekels to heal
-// 3 problems
-// 1) it has no cooldown
-// 2) eaten shekel is not removed
+// 2 problems
+// 1) it has no cooldown (can be solved by making it add nutrition)
 // 3) if you eat a stack of spacecash you eat all of it for same healing effect
 /datum/species/jew/eatmoney
 	/mob/living/carbon/human/attackby(obj/item/C, mob/user, params)
 		if (src.dna.species.id == "jew")
-			if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin/silver)))
+			if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin)))
 				src.heal_overall_damage(10)
 				user << "<span class='notice'>You eat the tasty shekels.</span>"
 				user << "<span class='notice'>Your wounds heal. Being a jew isn't so bad</span>"
 				user.visible_message("[src] hungrily gobbles the cash!")
 				playsound(src.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
-				del(C)
-//fix it goyim
-//it also needs more messages for full ar pee immersion it has no message that lets goyims know that you are a fine jewtlemen and are eating shekels
 
 //birb
 
