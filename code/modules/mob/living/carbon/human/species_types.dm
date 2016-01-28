@@ -162,14 +162,21 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		return 0
 	return 1
 
-//this no work 4 som reasin
-//kike hit with money - kike heals why this no work ??????????///////////////
+//ok now you can eat shekels to heal
+// 3 problems
+// 1) it has no cooldown
+// 2) eaten shekel is not removed
+// 3) if you eat a stack of spacecash you eat all of it for same healing effect
 /datum/species/jew/eatmoney
-	/mob/living/carbon/human/species/jew/attackby(obj/item/C, mob/user, params)
-		if (istype(C, /obj/item/stack/spacecash))
-			src.adjustBruteLoss(-20)
-			user << "<span class='notice'>ey b0ss i habe a test...</span>"
-//b0ss ples halp
+	/mob/living/carbon/human/attackby(obj/item/C, mob/user, params)
+		if (src.dna.species.id == "jew")
+			if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin/silver)))
+				src.heal_overall_damage(10)
+				user << "<span class='notice'>You eat shekel</span>"
+				user << "<span class='notice'>Your wounds heal. Being a jew isn't so bad</span>"
+				playsound(src.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
+//fix it goyim
+//it also needs more messages for full ar pee immersion it has no message that lets goyims know that you are a fine jewtlemen and are eating shekels
 
 //birb
 
