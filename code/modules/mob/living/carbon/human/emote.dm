@@ -223,6 +223,12 @@
 			if(!B)
 				src << "\red You don't have a butt!"
 				return
+			exception = 1
+			src.nutrition -= 30
+			if(src.w_uniform)
+				src << "You shit in your uniform. Good job."
+				playsound(src, 'sound/misc/squishy.ogg')
+				return
 			var/lose_butt = prob(9)
 			src.nutrition -= 30
 			new /obj/effect/decal/cleanable/poo(src.loc)
@@ -278,7 +284,6 @@
 						B.stored -= O.itemstorevalue
 					B.Remove(src)
 					B.loc = get_turf(src)
-					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted") + " " + pick("butt", "ass", "hindpart")
 					new /obj/effect/decal/cleanable/blood(src.loc)
 					src.nutrition -= rand(15, 30)
 					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
