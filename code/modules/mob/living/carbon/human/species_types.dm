@@ -134,12 +134,18 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	say_mod = "snorts"
 	default_color = "00FF00"
 	roundstart = 1
+	safe_oxygen_min = 20 //breathe more because air is free
+	tox_breath_dam_min = 100
+	tox_breath_dam_max = 100 //stop holocausting me
+	burnmod = 2
+	heatmod = 2 //oy vey need to say away from aryan ovens
 	specflags = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
 	mutant_bodyparts = list("nose")
 	default_features = list("nose" = "Big")
 	attack_verb = "slash"
 	meat = /obj/item/stack/spacecash/c1000
 	teeth_type = /obj/item/stack/teeth/human
+
 
 /datum/species/jew/random_name(unique,lastname)
 	if(unique)
@@ -156,6 +162,16 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		return 0
 	return 1
 
+//this no work 4 som reasin
+//kike hit with money - kike heals why this no work ??????????///////////////
+/datum/species/jew/eatmoney
+	/mob/living/carbon/human/species/jew/attackby(obj/item/C, mob/user, params)
+		if (istype(C, /obj/item/stack/spacecash))
+			src.adjustBruteLoss(-20)
+			user << "<span class='notice'>ey b0ss i habe a test...</span>"
+//b0ss ples halp
+
+//birb
 
 /datum/species/bird
 	// flappy bird
@@ -175,6 +191,7 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		return 0
 	return 1
 
+//fucking furries
 
 /datum/species/cat
 	// catban
@@ -206,6 +223,7 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		return 0
 	return 1
 
+//robats
 
 /datum/species/bot
 	// Why bother have borgs
