@@ -201,6 +201,7 @@
 						B.stored -= O.itemstorevalue
 					B.Remove(src)
 					B.loc = get_turf(src)
+					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted", "poo smeared", "double-jointed", "gaping", "pimply", "filthy", "ruined", "severed", "wrecked") + " " + pick("butt", "arse", "Duke Pookem", "behind", "bottom", "rear", "ass", "hindpart")
 					new /obj/effect/decal/cleanable/blood(src.loc)
 					src.nutrition -= rand(15, 30)
 					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
@@ -284,6 +285,7 @@
 						B.stored -= O.itemstorevalue
 					B.Remove(src)
 					B.loc = get_turf(src)
+					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted", "poo smeared", "double-jointed", "gaping", "pimply", "filthy", "ruined", "severed", "wrecked") + " " + pick("butt", "arse", "Duke Pookem", "behind", "bottom", "rear", "ass", "hindpart")
 					new /obj/effect/decal/cleanable/blood(src.loc)
 					src.nutrition -= rand(15, 30)
 					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
