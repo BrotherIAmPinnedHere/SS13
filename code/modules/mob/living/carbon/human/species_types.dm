@@ -172,9 +172,11 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 		if (src.dna.species.id == "jew")
 			if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin/silver)))
 				src.heal_overall_damage(10)
-				user << "<span class='notice'>You eat shekel</span>"
+				user << "<span class='notice'>You eat the tasty shekels.</span>"
 				user << "<span class='notice'>Your wounds heal. Being a jew isn't so bad</span>"
+				user.visible_message("[src] hungrily gobbles the cash!")
 				playsound(src.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
+				del(C)
 //fix it goyim
 //it also needs more messages for full ar pee immersion it has no message that lets goyims know that you are a fine jewtlemen and are eating shekels
 
