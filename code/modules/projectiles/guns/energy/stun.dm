@@ -6,6 +6,14 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
 	ammo_x_offset = 3
 
+/obj/item/weapon/gun/energy/antibutt
+	name = "butt removal device"
+	desc = "This specialized taser gun will fire a special electrode full of nanobots that will sever the targets hindpart in a matter of seconds."
+	icon_state = "taser"
+	item_state = null
+	ammo_type = list(/obj/item/ammo_casing/energy/antibutt)
+	ammo_x_offset = 2
+
 /obj/item/weapon/gun/energy/stunrevolver
 	name = "stun revolver"
 	desc = "A high-tech revolver that fires internal, reusable taser cartridges in a revolving cylinder. The cartridges can be recharged using conventional rechargers."

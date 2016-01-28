@@ -26,7 +26,7 @@
 	switch(act) //Please keep this alphabetically ordered when adding or changing emotes.
 		if ("aflap") //Any emote on human that uses miming must be left in, oh well.
 			if (!src.restrained())
-				message = "<B>[src]</B> flaps \his wings ANGRILY!"
+				message = "<B>[src]</B> flaps \his hands ANGRILY! NO GRIFFING!!! REEEEEE!!!"
 				m_type = 2
 
 		if ("choke","chokes")
@@ -145,9 +145,7 @@
 			message = "<B>[src]</B> [pick(
 				  "rears up and lets loose a fart of tremendous magnitude!",
 				  "farts!",
-				  "just fucking farted, what a mongoloid!",
-				  "does a post-modern expression of Limed00d's posting skills!",
--				  "does a statement on social justice",
+				  "just fucking farted, what a mongoloid!", // do not fucking re-add those messages, trashman does not want unneccessary drama, the social justice one is fine and not directed directly at the sjw sperg we all hate
 				  "does a post-modern statement on social justice",
 				  "toots.",
 				  "harvests methane from uranus at mach 3!",
@@ -195,16 +193,7 @@
 					playsound(src, 'sound/misc/fart.ogg', 50, 1, 5)
 				sleep(1)
 				if(lose_butt)
-					for(var/obj/item/O in B.contents)
-						O.loc = get_turf(src)
-						B.contents -= O
-						B.stored -= O.itemstorevalue
-					B.Remove(src)
-					B.loc = get_turf(src)
-					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted", "poo smeared", "double-jointed", "gaping", "pimply", "filthy", "ruined", "severed", "wrecked") + " " + pick("butt", "arse", "Duke Pookem", "behind", "bottom", "rear", "ass", "hindpart")
-					new /obj/effect/decal/cleanable/blood(src.loc)
-					src.nutrition -= rand(15, 30)
-					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
+					src.losebutt(B)
 				else
 					src.nutrition -= rand(5, 25)
 				for(var/mob/living/M in range(0))
@@ -279,16 +268,7 @@
 					playsound(src, 'sound/misc/fart.ogg', 50, 1, 5)
 				sleep(1)
 				if(lose_butt)
-					for(var/obj/item/O in B.contents)
-						O.loc = get_turf(src)
-						B.contents -= O
-						B.stored -= O.itemstorevalue
-					B.Remove(src)
-					B.loc = get_turf(src)
-					B.name = "[src]'s " + pick("despicable", "delectable", "smelly", "rotten", "busted", "poo smeared", "double-jointed", "gaping", "pimply", "filthy", "ruined", "severed", "wrecked") + " " + pick("butt", "arse", "Duke Pookem", "behind", "bottom", "rear", "ass", "hindpart")
-					new /obj/effect/decal/cleanable/blood(src.loc)
-					src.nutrition -= rand(15, 30)
-					visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
+					src.losebutt(B)
 				else
 					src.nutrition -= rand(5, 25)
 				for(var/mob/living/M in range(0))
@@ -320,7 +300,7 @@
 
 		if ("flap","flaps")
 			if (!src.restrained())
-				message = "<B>[src]</B> flaps \his wings."
+				message = "<B>[src]</B> flaps \his hands."
 				m_type = 2
 
 		if ("gasp","gasps")
@@ -629,6 +609,7 @@
 						O.assthrown = 0 // so you can't just unembed it and throw it for insta embeds
 				B.Remove(src)
 				B.loc = get_turf(src)
+				B.name = "[src]'s absolutely ruined butt" // no fuck this shit its entirely different
 				if(B.loose) B.loose = 0
 				new /obj/effect/decal/cleanable/blood(src.loc)
 				src.nutrition -= 500

@@ -38,6 +38,30 @@
 	sparks.start()
 	..()
 
+/obj/item/projectile/energy/antibutt
+	name = "anti butt particle"
+	icon_state = "spark"
+	color = "#FFA000"
+	damage = 15
+	damage_type = BRUTE
+	hitsound = 'sound/misc/fart.ogg'
+	range = 7
+
+/obj/item/projectile/energy/antibutt/on_hit(atom/target, blocked = 0)
+	. = ..()
+	if(!ismob(target) || blocked >= 2) //Fully blocked by mob or collided with dense object - burst into sparks!
+		var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
+		sparks.set_up(1, 1, src)
+		sparks.start()
+	else if(iscarbon(target))
+		var/mob/living/carbon/human/C = target
+		if(C.dna && C.dna.check_mutation(HULK))
+			C.say("*superfart")
+		else if(C.status_flags & CANWEAKEN)
+			spawn(5)
+				C.do_jitter_animation(jitter)
+				C.losebutt()
+
 /obj/item/projectile/energy/net
 	name = "energy netting"
 	icon_state = "e_netting"
