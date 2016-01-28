@@ -86,7 +86,7 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	return 1
 
 /datum/species/lizard/handle_speech(message)
-	// jesus christ why
+	// jesssusss chrissst why
 	if(copytext(message, 1, 2) != "*")
 		message = replacetext(message, "s", "sss")
 
@@ -154,6 +154,39 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	var/randname = jew_name()
 
 	return randname
+
+/datum/species/jew/handle_speech(message)
+	if(copytext(message, 1, 2) != "*")
+		message = replacetext(message,"dude", " goyim")
+		message = replacetext(message,"man", " goyim")
+		message = replacetext(message,"guy", " goyim")
+		message = replacetext(message,"boy", " goyim")
+		message = replacetext(message,"faggot", " anti-semite")
+		message = replacetext(message,"nigger", " anti-semite")
+		message = replacetext(message,"retard", " anti-semite")
+		message = replacetext(message,"bro", " goyim")
+		message = replacetext(message,"fam", " goyim")
+		message = replacetext(message,"wow", " oy vey")
+		message = replacetext(message,"woah", " oy vey")
+		message = replacetext(message,"grief", " holocaust")
+		message = replacetext(message,"griefing", " holocausting")
+		message = replacetext(message,"money", " shekels")
+		message = replacetext(message,"coin", " shekel")
+		message = replacetext(message,"coins", " shekels")
+		message = replacetext(message,"money", " shekels")
+		message = replacetext(message,"medbay", " auschwitz")
+		message = replacetext(message,"cash", " shekels")
+		message = replacetext(message,"jesus", " we killed jesus")
+		message = replacetext(message,"oh my god", " oy vey")
+		message = replacetext(message,"jesus christ", " we killed jesus")
+		message = replacetext(message,"gosh", " oy vey")
+		message = replacetext(message,"kill", " shoah")
+		message = replacetext(message,"murder", " shoah")
+		message = replacetext(message,"andy", " goyim")
+		message = replacetext(message,"woody", " hitler")
+		message = replacetext(message,"wood", " ash")
+
+	return message
 
 /datum/species/jew/qualifies_for_rank(rank, list/features)
 	if(rank in command_positions)
