@@ -62,7 +62,7 @@
 						sound = pick('sound/misc/cough_f1.ogg', 'sound/misc/cough_f2.ogg', 'sound/misc/cough_f3.ogg')
 					playsound(src.loc, sound, 50, 1, 5)
 					if(nearcrit)
-						message = "<B>[src]</B> coughs painfuly!"
+						message = "<B>[src]</B> coughs up blood!"
 					else
 						message = "<B>[src]</B> coughs!"
 					m_type = 2
@@ -89,6 +89,9 @@
 				if(client.prefs.muted & MUTE_IC)
 					src << "You cannot send IC messages (muted)."
 					return
+			if((src.lashed>=1))
+				src << "You're too ashamed to do that..."
+				return
 			var/input = copytext(sanitize(input("Choose an emote to display.") as text|null),1,MAX_MESSAGE_LEN)
 			if (!input)
 				return
@@ -145,14 +148,48 @@
 			message = "<B>[src]</B> [pick(
 				  "rears up and lets loose a fart of tremendous magnitude!",
 				  "farts!",
-				  "just fucking farted, what a mongoloid!", // do not fucking re-add those messages, trashman does not want unneccessary drama, the social justice one is fine and not directed directly at the sjw sperg we all hate
-				  "does a post-modern statement on social justice",
+				  "just fucking farted, what a mongoloid!", // do not re-add those messages, trashman does not want unneccessary drama, the social justice one is fine and not directed directly at the sjw sperg we all hate
+				  "does a post-modern statement on social justice", //^ a faggot lol, but pleae don't re add them.
 				  "toots.",
 				  "harvests methane from uranus at mach 3!",
 				  "assists global warming!",
 				  "farts and waves their hand dismissively.",
 				  "farts and pretends nothing happened.",
 				  "is a <b>farting</b> motherfucker!",
+				  "expels intestinal gas!",
+				  "is silent, but deadly!",
+				  "farts and fondles their buttocks.",
+				  "queefs from their mouth! Double trouble!",
+				  "farts <font color='red'>FOR THE MOTHERAND!</font>",
+				  "farts <font color='blue'>FOR THE REICH!</font>",
+				  "burps! It's a fart from the mouth!",
+				  "farts! It reminds you of your grandmother's queefs.",
+				  "farts very, very quietly.... \red THE STENCH IS OVERPOWERING!",
+				  "does the George Melons salute!",
+				  "farts and fondles YOUR buttocks! ",
+				  "farts! The fart is dead, long live the fart!",
+				  "sings the song of the Fartisans.",
+				  "is a flatulent whore.",
+				  "fills the room with the scent of George Melons' perfume!",
+				  "tests a North Korean nuke in their pants!",
+				  "toolboxes the assistants living in their colon!",
+				  "allows you to sample a large array of anal scents.",
+				  "queefs from their ass!",
+				  "farts loudly! Now the room smells like dead babies.",
+				  "farts loudly! Now the room smells like Fidel Castro's unwashed testicles.",
+				  "farts loudly! Now the room feels like an extremely unoriginal fart message.",
+				  "farts loudly! Now the room smells like a Baystation12 admin's basement.",
+				  "groans and moans, farting like the world depended on it.",
+				  "releases funeral fog from their blackened pit of demons! How very kvlt and nekro!",
+				  "gasses their pantjews. Heil Fartler!",
+				  "farts loud enough to make George Melons blush!",
+				  "farts with much force, barely avoiding making a roleplay in their pants!",
+				  "puts the art back into farting with their custom tailored farts! Hey, <B>[src]</B>, you're fuckin' good.",
+				  "directs a griefer's symphony!",
+				  "breaks wind.",
+				  "farts in their mouth. A shameful [src].",
+				  "grunts and strains, tainting the air with toxic anal gasses.",
+				  "hath farteth.",
 				  "<B><font color='red'>f</font><font color='blue'>a</font><font color='red'>r</font><font color='blue'>t</font><font color='red'>s</font></B>")]"
 			spawn(0)
 				spawn(1)
@@ -380,6 +417,9 @@
 					m_type = 2
 
 		if ("me")
+			if((src.lashed>=1))
+				src << "You're too ashamed to do that..."
+				return
 			if(silent)
 				return
 			if(jobban_isbanned(src, "emote"))

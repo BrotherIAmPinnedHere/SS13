@@ -58,6 +58,7 @@
 	var/resting = 0			//Carbon
 	var/silent = 0			//Carbon
 	var/lying = 0
+	var/lashed = 0
 	var/lying_prev = 0
 	var/canmove = 1
 	var/eye_stat = null//Living, potentially Carbon
