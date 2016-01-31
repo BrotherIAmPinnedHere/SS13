@@ -34,11 +34,15 @@ obj/item/weapon/melee/chainofcommand/lashmaster
 
 /obj/item/weapon/melee/chainofcommand/lashmaster/attack(mob/living/carbon/human/H, mob/user) //we hit human
 	if (H.emotecd > world.time)				//if human cant use emotes
+		user << "No. They've been punished enough."
 		return								//do nuffin
 	if (H.emotecd <= world.time)			//if can
 		H.emotecd = (world.time + 200)		//add 60 seconds cd (should make it a constant somewhere ok)
+		H.visible_message("<span class ='danger'>[user] has violently lashed [H] with \the [src]!</span>")
+		playsound(get_turf(src), 'sound/weapons/chainofcommand.ogg', 75, 1, -1)
 	if (H.lashed > 0)						//leaves a mark of being an ar pee faggot
 		H.lashed = 1
+		return
 
 //yea boi
 
@@ -80,6 +84,7 @@ obj/item/weapon/melee/chainofcommand/lashmaster
 			if(cooldown <= 0)
 				playsound(get_turf(src), 'sound/effects/woodhit.ogg', 75, 1, -1)
 				target.Weaken(3)
+				target.lashed = 1
 				add_logs(user, target, "stunned", src)
 				src.add_fingerprint(user)
 				target.visible_message("<span class ='danger'>[user] has knocked down [target] with \the [src]!</span>", \
