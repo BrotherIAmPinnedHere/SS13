@@ -89,7 +89,7 @@
 				if(client.prefs.muted & MUTE_IC)
 					src << "You cannot send IC messages (muted)."
 					return
-			if((src.lashed>=1))
+			if((src.emotecd > world.time))
 				src << "You're too ashamed to do that..."
 				return
 			var/input = copytext(sanitize(input("Choose an emote to display.") as text|null),1,MAX_MESSAGE_LEN)
@@ -417,7 +417,7 @@
 					m_type = 2
 
 		if ("me")
-			if((src.lashed>=1))
+			if((src.emotecd > world.time)) //emotecd is a varibale that only gets changed if you get whipped, it will eventually become less than current world time so nigger will be able to use emotes again
 				src << "You're too ashamed to do that..."
 				return
 			if(silent)

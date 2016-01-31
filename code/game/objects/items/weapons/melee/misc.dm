@@ -19,6 +19,28 @@
 	user.visible_message("<span class='suicide'>[user] is strangling \himself with the [src.name]! It looks like \he's trying to commit suicide.</span>")
 	return (OXYLOSS)
 
+//whip erp faggers
+obj/item/weapon/melee/chainofcommand/lashmaster
+	name = "Lashmaster's whip"
+	desc = "lol"
+	force = 10
+	throwforce = 7
+	w_class = 3
+	origin_tech = "combat=4"
+	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	hitsound = 'sound/weapons/chainofcommand.ogg'
+//it needs hit indication, it also deals no damage
+
+
+/obj/item/weapon/melee/chainofcommand/lashmaster/attack(mob/living/carbon/human/H, mob/user) //we hit human
+	if (H.emotecd > world.time)				//if human cant use emotes
+		return								//do nuffin
+	if (H.emotecd <= world.time)			//if can
+		H.emotecd = (world.time + 200)		//add 60 seconds cd (should make it a constant somewhere ok)
+	if (H.lashed > 0)						//leaves a mark of being an ar pee faggot
+		H.lashed = 1
+
+//yea boi
 
 
 /obj/item/weapon/melee/classic_baton
