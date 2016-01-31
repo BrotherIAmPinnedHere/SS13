@@ -198,21 +198,19 @@ datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
 	if(rank == "Quartermaster") //goyim know
 		return 0
 	return 1
-
-//ok now you can eat shekels to heal
-// 2 problems
-// 1) it has no cooldown (can be solved by making it add nutrition)
-// 3) if you eat a stack of spacecash you eat all of it for same healing effect
+// quoted out because the second line makes it so that nobody but jews can attack anyone.
+/*
 /datum/species/jew/eatmoney
-	/mob/living/carbon/human/attackby(obj/item/C, mob/user, params)
-		if (src.dna.species.id == "jew")
-			if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin)))
-				src.heal_overall_damage(10)
-				user << "<span class='notice'>You eat the tasty shekels.</span>"
-				user << "<span class='notice'>Your wounds heal. Being a jew isn't so bad</span>"
-				user.visible_message("[src] hungrily gobbles the cash!")
-				playsound(src.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
-
+/mob/living/carbon/human/attackby(obj/item/C, mob/user, params)
+if (src.dna.species.id == "jew")
+if ((istype(C, /obj/item/stack/spacecash))|| (istype(C, /obj/item/weapon/coin)))
+src.heal_overall_damage(10)
+user << "<span class='notice'>You eat the tasty shekels.</span>"
+user << "<span class='notice'>Your wounds heal. Being a jew isn't so bad</span>"
+user.visible_message("[src] hungrily gobbles the cash!")
+playsound(src.loc,'sound/items/eatfood.ogg', rand(10,50), 1)
+del(C)
+*/
 //birb
 
 /datum/species/bird
