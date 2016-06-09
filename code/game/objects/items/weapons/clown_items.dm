@@ -127,3 +127,10 @@
 	icon_state = "air_horn"
 	honksound = 'sound/items/AirHorn2.ogg'
 	cooldowntime = 50
+
+/obj/item/weapon/bikehorn/cyka
+	name = "cyka"
+	desc = "remuv kibab"
+	icon_state = "air_horn"
+	honksound = 'sound/ambience/johncena.ogg'
+	cooldowntime = 50
